@@ -1,0 +1,6 @@
+@TrailApi_HostAddress = http://localhost:5287
+
+GET {{TrailApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

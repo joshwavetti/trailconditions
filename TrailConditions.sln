@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5B27F4A5-6B41-428D-9090-A85030F3D695}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrailApi", "src\TrailApi\TrailApi.csproj", "{5B9BAC41-FA74-4697-81C3-5C85E6E5DE5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frontend", "src\Frontend\Frontend.csproj", "{2CE67B40-043D-4BF0-8831-B458B6A27913}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5B9BAC41-FA74-4697-81C3-5C85E6E5DE5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B9BAC41-FA74-4697-81C3-5C85E6E5DE5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B9BAC41-FA74-4697-81C3-5C85E6E5DE5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B9BAC41-FA74-4697-81C3-5C85E6E5DE5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CE67B40-043D-4BF0-8831-B458B6A27913}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CE67B40-043D-4BF0-8831-B458B6A27913}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CE67B40-043D-4BF0-8831-B458B6A27913}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CE67B40-043D-4BF0-8831-B458B6A27913}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5B9BAC41-FA74-4697-81C3-5C85E6E5DE5B} = {5B27F4A5-6B41-428D-9090-A85030F3D695}
+		{2CE67B40-043D-4BF0-8831-B458B6A27913} = {5B27F4A5-6B41-428D-9090-A85030F3D695}
+	EndGlobalSection
+EndGlobal
