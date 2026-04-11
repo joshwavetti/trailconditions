@@ -21,11 +21,25 @@ var app = builder.Build();
 
 app.UseCors("AllowFrontend");
 
-// Auto-run migrations on startup
+// Auto-run migrations on startup with retry
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<TrailDbContext>();
-    db.Database.Migrate();
+    var retries = 10;
+    while (retries > 0)
+    {
+        try
+        {
+            db.Database.Migrate();
+            break;
+        }
+        catch (Exception ex)
+        {
+            retries--;
+            Console.WriteLine($"DB not ready, retrying... ({retries} attempts left). Error: {ex.Message}");
+            Thread.Sleep(3000);
+        }
+    }
 }
 
 app.MapGet("/health", () => "healthy");
