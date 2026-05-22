@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: trailapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: trailapi
+  template:
+    metadata:
+      labels:
+        app: trailapi
+    spec:
+      containers:
+        - name: trailapi
+          image: {{ .Values.api.image.repository }}:{{ .Values.api.image.tag }}
+          ports:
+            - containerPort: {{ .Values.api.port }}
+          env:
+            - name: ConnectionStrings__DefaultConnection
+              value: Host=postgres;Port=5432;Database={{ .Values.postgres.database }};Username={{ .Values.postgres.username }};Password={{ .Values.postgres.password }}

@@ -1,0 +1,17 @@
+api:
+  image:
+    repository: trailconditionsacr.azurecr.io/trailapi
+    tag: v1
+  port: 8080
+
+frontend:
+  image:
+    repository: trailconditionsacr.azurecr.io/frontend
+    tag: v1
+  port: 80
+
+postgres:
+  image: postgres:16
+  database: trailconditions
+  username: postgres
+  password: postgres
