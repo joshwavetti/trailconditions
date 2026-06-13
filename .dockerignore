@@ -1,0 +1,10 @@
+**/.git
+**/.vs
+**/obj
+**/bin
+**/.terraform
+infra/
+helm/
+.gitignore
+README.md
+docker-compose.yml

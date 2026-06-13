@@ -1,13 +1,13 @@
 api:
   image:
-    repository: trailconditionsacr.azurecr.io/trailapi
-    tag: v1
+    repository: ghcr.io/joshwavetti/trailapi
+    tag: v4
   port: 8080
 
 frontend:
   image:
-    repository: trailconditionsacr.azurecr.io/frontend
-    tag: v1
+    repository: ghcr.io/joshwavetti/frontend
+    tag: v4
   port: 80
 
 postgres:
