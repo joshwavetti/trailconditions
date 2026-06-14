@@ -3,12 +3,14 @@ api:
     repository: ghcr.io/joshwavetti/trailapi
     tag: v4
   port: 8080
+  replicas: 1
 
 frontend:
   image:
     repository: ghcr.io/joshwavetti/frontend
     tag: v5
   port: 80
+  replicas: 1
 
 postgres:
   image: postgres:16
