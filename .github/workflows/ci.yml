@@ -1,0 +1,59 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/**'
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Login to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set image tag
+        id: tag
+        run: echo "TAG=sha-$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+
+      - name: Build and push TrailApi
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: src/TrailApi/Dockerfile
+          platforms: linux/arm64
+          push: true
+          provenance: false
+          tags: ghcr.io/joshwavetti/trailapi:${{ steps.tag.outputs.TAG }}
+
+      - name: Build and push Frontend
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: src/Frontend/Dockerfile
+          platforms: linux/arm64
+          push: true
+          provenance: false
+          tags: ghcr.io/joshwavetti/frontend:${{ steps.tag.outputs.TAG }}
+
+      - name: Update Helm values
+        run: |
+          sed -i "s/tag: .*/tag: ${{ steps.tag.outputs.TAG }}/" helm/trailconditions/values.yaml
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add helm/trailconditions/values.yaml
+          git commit -m "ci: update image tags to ${{ steps.tag.outputs.TAG }}"
+          git push
