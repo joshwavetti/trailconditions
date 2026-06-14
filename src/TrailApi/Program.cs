@@ -1,3 +1,4 @@
+// TrailConditions API v1.0
 using Microsoft.EntityFrameworkCore;
 using TrailApi.Data;
 using TrailApi.Endpoints;
