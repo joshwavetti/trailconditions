@@ -3,7 +3,7 @@ api:
     repository: ghcr.io/joshwavetti/trailapi
     tag: v4
   port: 8080
-  replicas: 1
+  replicas: 2
 
 frontend:
   image:
