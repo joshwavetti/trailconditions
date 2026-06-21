@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: trailconditions
+  description: A project to obtain real-time trail conditions
+  annotations:
+    github.com/project-slug: joshwavetti/trailconditions
+spec:
+  type: service
+  lifecycle: experimental
+  owner: user:guest
